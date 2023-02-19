@@ -13,7 +13,4 @@ rm -rf codx-cli
 git clone https://github.com/gbrian/codx-cli.git
 chmod +x codx-cli/codx.sh
 
-sudo echo "CODX_APPS=${PWD}/codx-cli" >> /etc/environment
-sudo echo "alias codx='${PWD}/codx-cli/codx.sh'" >> /etc/profile
-. /etc/environment
-. /etc/profile
+echo "alias codx='bash /root/codx-cli/codx.sh'" >> ~/.bashrc

@@ -7,7 +7,7 @@ if [ $COMMAND ]; then
 fi
 
 # Register codx alias
-sudo apt-update
+sudo apt update
 sudo apt install -y git
 
 rm -rf codx-cli

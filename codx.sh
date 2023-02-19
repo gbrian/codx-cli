@@ -1,5 +1,6 @@
 #!/bin/bash
 COMMAND=$1
+CODX_APPS=$(dirname -- "$0")
 if [ $COMMAND ]; then 
   bash $CODX_APPS/${COMMAND}.sh
   exit

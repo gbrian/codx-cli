@@ -1,4 +1,4 @@
-bash $HOME/apps/python.sh
+curl https://raw.githubusercontent.com/gbrian/codx-cli/main/python.sh | bash
 pip install jupyterlab
 
 rm .jupyter/jupyter_notebook_config.py || true
@@ -9,5 +9,5 @@ sed -i "s/\# c.NotebookApp.ip = 'localhost'/c.NotebookApp.ip = '0.0.0.0'/" .jupy
 sed -i "s/\# c.NotebookApp.token = '<generated>'/c.NotebookApp.token = ''/" .jupyter/jupyter_notebook_config.py
 sed -i "s/\# c.NotebookApp.allow_origin = ''/c.NotebookApp.allow_origin = '*'/" .jupyter/jupyter_notebook_config.py
 # Register service
-sudo bash $CODX_APPS/register-app.sh "jupyter-lab" "$HOME/.local/bin/jupyter-lab"
+curl https://raw.githubusercontent.com/gbrian/codx-cli/main/register-app.sh | sudo bash -s -- "jupyter-lab" "$HOME/.local/bin/jupyter-lab"
 

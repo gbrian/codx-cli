@@ -1,7 +1,7 @@
 # THANKS TO: https://www.cyberciti.biz/faq/how-to-install-docker-on-amazon-linux-2/
 sudo yum update
 # Search for Docker package:
-sudo yum install docker
+sudo yum install -y docker
 
 # Add group membership for the default ec2-user so you can run all docker commands without using the sudo command:
 sudo usermod -a -G docker ec2-user

@@ -1,6 +1,6 @@
 # https://www.inmotionhosting.com/support/edu/wordpress/install-wordpress-debian-10/
 # SET UP DATABASE
-sudo apt install -y mariadb-server mphp libapache2-mod-php php-mysql wget
+sudo apt install -y mariadb-server mphp libapache2-mod-php php-mysql wget apache2
 
 DB="wordpress"
 DB_USER="dbuser"
@@ -25,3 +25,9 @@ sudo sed -i "s/database_name_here/$DB/g" wp-config.php
 sudo sed -i "s/username_here/$DB_USER/g" wp-config.php
 sudo sed -i "s/password_here/$DB_PASS/g" wp-config.php
 
+# Start MariaDB in the background
+mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
+mysqld &
+
+# Start Webserver apache2
+/etc/init.d/apache2 start

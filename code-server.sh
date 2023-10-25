@@ -1,5 +1,6 @@
-VERSION=${1:-4.17.1}
-curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-server_${VERSION}_amd64.deb
-sudo dpkg -i code-server_${VERSION}_amd64.deb
-echo "127.0.0.1:9080 code-server.app" >> /etc/hosts
+# Install latest version
+RUN curl -fsSL https://code-server.dev/install.sh | sh
+# Register host name
+echo "0.0.0.0:9080 code-server" >> /etc/hosts
+# Run in background
 sudo -i -u "1000:1000" code-server --bind-addr=0.0.0.0:9080 --auth=none &

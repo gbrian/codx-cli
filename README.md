@@ -1,5 +1,11 @@
 # codx-cli
 codx rooms apps installer.
+
+### Install
+```
+curl -sL "https://raw.githubusercontent.com/gbrian/codx-cli/main/codx.sh" | bash -s
+```
+
 USAGE `codx $APP $1 $2 ...`
 
 ### List of apps

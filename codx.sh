@@ -11,7 +11,7 @@ sudo apt update
 sudo apt install -y git
 
 CODX_APPS=$PWD
-sudo echo "CODX_APPS=${CODX_APPS}codx-cli" >> /etc/environment
+sudo echo "CODX_APPS=${CODX_APPS}codx-cli" >> ~/.bashrc
 source /etc/environment
 rm -rf codx-cli
 git clone https://github.com/gbrian/codx-cli.git

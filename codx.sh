@@ -2,7 +2,7 @@
 COMMAND=$1
 CODX_APPS=$(dirname -- "$0")
 if [ $COMMAND ]; then 
-  bash $CODX_APPS/${COMMAND}.sh
+  (cd $CODX_APPS && bash ./${COMMAND}.sh)
   exit
 fi
 
@@ -11,6 +11,8 @@ sudo apt update
 sudo apt install -y git
 
 CODX_APPS=$PWD
+sudo echo "CODX_APPS=${CODX_APPS}codx-cli" >> /etc/environment
+source /etc/environment
 rm -rf codx-cli
 git clone https://github.com/gbrian/codx-cli.git
 chmod +x codx-cli/codx.sh

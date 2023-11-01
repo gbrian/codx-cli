@@ -1,6 +1,12 @@
 #!/bin/bash
 COMMAND=$1
-CODX_APPS=$(dirname -- "$0")
+CODX_APPS=/etc/codx-cli
+
+echo "Executing codx $COMMAND"
+if [ $COMMAND == '--version' ] || [ $COMMAND == '-v' ]; then
+  echo "codx ver 0.1"
+  exit
+fi
 if [ $COMMAND ]; then 
   (cd $CODX_APPS && bash ./${COMMAND}.sh)
   exit
@@ -10,11 +16,11 @@ fi
 sudo apt update
 sudo apt install -y git
 
-CODX_APPS=$PWD
-sudo echo "export CODX_APPS=${CODX_APPS}codx-cli" >> ~/.bashrc
+cd /etc
 source /etc/environment
-rm -rf codx-cli
-git clone https://github.com/gbrian/codx-cli.git
-chmod +x codx-cli/codx.sh
+sudo rm -rf codx-cli
+sudo git clone https://github.com/gbrian/codx-cli.git
+sudo chmod +x codx-cli/codx.sh
 
-echo "alias codx='bash ${CODX_APPS}/codx-cli/codx.sh'" >> ~/.bashrc
+echo "export CODX_APPS=${CODX_APPS}" >> ~/.bashrc
+echo "alias codx='${CODX_APPS}/codx.sh'" >> ~/.bashrc

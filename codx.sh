@@ -16,11 +16,9 @@ fi
 sudo apt update
 sudo apt install -y git
 
-cd /etc
-source /etc/environment
-sudo rm -rf codx-cli
-sudo git clone https://github.com/gbrian/codx-cli.git
-sudo chmod +x codx-cli/codx.sh
+sudo rm -rf /etc/codx-cli
+sudo git clone https://github.com/gbrian/codx-cli.git /etc/codx-cli
+sudo chmod +x /etc/codx-cli/codx.sh
 
 echo "export CODX_APPS=${CODX_APPS}" >> ~/.bashrc
 echo "alias codx='${CODX_APPS}/codx.sh'" >> ~/.bashrc

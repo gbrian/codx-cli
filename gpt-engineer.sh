@@ -3,6 +3,7 @@ sudo apt update
 sudo apt-get install -y python3-tk make
 
 codx python
+source ~/.bashrc
 
 rm -rf gpt-engineer
 git clone --single-branch --branch codx https://github.com/gbrian/gpt-engineer.git

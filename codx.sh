@@ -3,7 +3,7 @@ COMMAND=$1
 CODX_APPS=/etc/codx-cli
 
 echo "Executing codx $COMMAND"
-if [ $COMMAND == '--version' ] || [ $COMMAND == '-v' ]; then
+if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
   echo "codx ver 0.1"
   exit
 fi

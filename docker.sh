@@ -1,3 +1,8 @@
+YUM=$(yum --version)
+if $YUM; then
+  bash ./aws-docker.sh $@
+  exit
+fi
 
 if [ ! -x "$(command -v docker)" ]; then
   sudo apt-get update

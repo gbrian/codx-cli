@@ -1,6 +1,7 @@
 #!/bin/bash
 COMMAND=$1
-CODX_APPS=/etc/codx-cli
+CODX_APPS=~/codx-cli
+mkdir -p $CODX_APPS
 
 echo "Executing codx $COMMAND"
 if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
@@ -17,8 +18,9 @@ sudo apt update
 sudo apt install -y git
 
 sudo rm -rf /etc/codx-cli
-sudo git clone https://github.com/gbrian/codx-cli.git /etc/codx-cli
-sudo chmod +x /etc/codx-cli/codx.sh
+sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
+sudo chmod +x $CODX_APPS/codx.sh
 
-echo "export CODX_APPS=${CODX_APPS}" >> ~/.bashrc
-echo "alias codx='${CODX_APPS}/codx.sh'" >> ~/.bashrc
+BASHRC=/home/$USER/.bashrc
+echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC
+echo "alias codx='${CODX_APPS}/codx.sh'" >> $BASHRC

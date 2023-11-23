@@ -1,6 +1,13 @@
 #!/bin/bash
 COMMAND=$1
 CODX_APPS=~/codx-cli
+
+if [ "$COMMAND" == "--update" ]; then
+  cd $CODX_APPS
+  git pull
+  exit
+fi
+
 mkdir -p $CODX_APPS
 
 echo "Executing codx $COMMAND"

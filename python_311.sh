@@ -1,32 +1,19 @@
 #!/bin/bash
-# https://tecadmin.net/how-to-install-python-3-11-on-debian/
 
-# Update and upgrade packages
-sudo apt update && sudo apt upgrade -y
+# Add SID repository to sources.list
+echo "deb http://deb.debian.org/debian/ sid main" | sudo tee -a /etc/apt/sources.list
 
-# Install required packages for compilation
-sudo apt install -y wget build-essential libncursesw5-dev libssl-dev \
-     libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev  
+# Update the package list
+sudo apt update
 
-# Download Python 3.11 source code
-wget https://www.python.org/ftp/python/3.11.3/Python-3.11.3.tgz
+# Install Python 3.11 from SID repository
+sudo apt install -t sid -y python3.11
 
-# Extract the archive
-tar xzf Python-3.11.3.tgz
+# Verify the installation
+VERSION=$(python3.11 -V)
 
-# Change to the extracted directory
-cd Python-3.11.3
+# Optionally, remove SID repository to avoid potential instability
+sudo sed -i '/deb http:\/\/deb.debian.org\/debian\/ sid main/d' /etc/apt/sources.list
+sudo apt update
 
-# Prepare the Python source code for compilation
-./configure --enable-optimizations
-
-# Compile and install Python
-make altinstall
-
-# Check Python version
-python3.11 -V
-
-# Check pip version
-pip3.11 -V
-
-echo "Python 3.11 has been successfully installed on your Debian system."
+echo "Python 3.11 has been successfully installed on your Debian Bullseye system. $VERSION"

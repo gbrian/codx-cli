@@ -21,6 +21,6 @@ sudo rm -rf /etc/codx-cli
 sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
 sudo chmod +x $CODX_APPS/codx.sh
 
-BASHRC=/home/$USER/.bashrc
+BASHRC=~/.bashrc
 echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC
 echo "alias codx='${CODX_APPS}/codx.sh'" >> $BASHRC

@@ -15,7 +15,7 @@ fi
 python3 -m pip install -e .
 
 GPT_ENGINEER_PATH=$PWD
-BASH_RC=/home/$USER/.bashrc
+BASH_RC=~/.bashrc
 if ! grep -q $OPENAI_API_KEY "$BASH_RC"; then
     echo "export OPENAI_API_KEY=$OPENAI_API_KEY" >> $BASH_RC
 fi

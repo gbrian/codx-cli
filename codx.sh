@@ -2,12 +2,13 @@
 COMMAND=$1
 CODX_APPS=~/codx-cli
 
-if [ "$COMMAND" == "--update" ]; then
+echo "codx running command $COMMAND"
+if [ "$COMMAND" = "--update" ]; then
   cd $CODX_APPS
-  git pull
+  git config --global --add safe.directory $CODX_APPS
+  sudo git pull
   exit
 fi
-
 mkdir -p $CODX_APPS
 
 echo "Executing codx $COMMAND"

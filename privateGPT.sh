@@ -26,7 +26,7 @@ poetry install --with ui
 
 # App stage
 export PYTHONUNBUFFERED=1
-export PORT=8080
+export PORT=6080
 
 # Prepare a non-root user
 adduser --system worker

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Clone repository
+mkdir -p /home/worker/privateGPT
 git clone --depth 1 -b main https://github.com/gbrian/privateGPT.git /home/worker/privateGPT
 
 # Install poetry
@@ -21,7 +22,6 @@ apt update && apt install -y \
 export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Build dependencies stage
-mkdir -p /home/worker/app
 cd /home/worker/privateGPT
 
 # Check if .env file exists, create virtual environment if not
@@ -38,9 +38,7 @@ export PORT=6080
 
 # Prepare a non-root user
 adduser --system worker
-mkdir -p /home/worker/app
-chown worker /home/worker/app
-cd /home/worker/app
+chown worker /home/worker/privateGPT
 mkdir local_data; chown worker local_data
 mkdir models; chown worker models
 

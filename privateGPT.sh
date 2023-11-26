@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clone repository
+git clone --depth 1 -b main https://github.com/gbrian/privateGPT.git /home/worker/privateGPT
+
 # Install poetry
 pip install pipx
 python3 -m pipx ensurepath
@@ -19,9 +22,13 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Build dependencies stage
 mkdir -p /home/worker/app
-cd /home/worker/app
-git clone --depth 1 -b main https://github.com/gbrian/privateGPT.git /home/worker/app
-cp $PWD/pyproject.toml $PWD/poetry.lock ./
+cd /home/worker/privateGPT
+
+# Check if .env file exists, create virtual environment if not
+if [ ! -f $PWD/.env ]; then
+  poetry env use python3
+fi
+
 poetry install --with local
 poetry install --with ui
 
@@ -36,12 +43,6 @@ chown worker /home/worker/app
 cd /home/worker/app
 mkdir local_data; chown worker local_data
 mkdir models; chown worker models
-
-# Copy files and directories
-cp --preserve=timestamps --recursive --update $PWD/.venv/ .venv
-cp --preserve=timestamps --recursive --update $PWD/private_gpt/ private_gpt
-cp --preserve=timestamps --recursive --update $PWD/docs/ docs
-cp --preserve=timestamps --update $PWD/*.yaml $PWD/*.md ./
 
 # Change ownership
 chown -R worker:worker .

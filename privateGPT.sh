@@ -20,7 +20,7 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 # Build dependencies stage
 mkdir -p /home/worker/app
 cd /home/worker/app
-gir clone --depth 1 -b main https://github.com/gbrian/privateGPT.git /home/worker/app
+git clone --depth 1 -b main https://github.com/gbrian/privateGPT.git /home/worker/app
 cp $PWD/pyproject.toml $PWD/poetry.lock ./
 poetry install --with local
 poetry install --with ui

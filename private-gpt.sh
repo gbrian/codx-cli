@@ -27,7 +27,7 @@ export POETRY_VIRTUALENVS_IN_PROJECT=true
 
 # Check if .env file exists, create virtual environment if not
 if [ ! -f $PWD/.env ]; then
-  poetry env use python3
+  poetry env use python3.11
 fi
 
 poetry install --with local

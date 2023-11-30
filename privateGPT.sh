@@ -37,8 +37,5 @@ poetry install --with ui
 export PYTHONUNBUFFERED=1
 export PORT=6080
 
-mkdir local_data
-mkdir models
-
 # Switch to non-root user
-echo "alias private_gpt=${CODX_APPS}/privateGPT/.venv/bin/python -m private_gpt" >> ~/.bashrc
+echo "alias private_gpt='${CODX_APPS}/privateGPT/.venv/bin/python -m private_gpt'" >> ~/.bashrc

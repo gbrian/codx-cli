@@ -1,5 +1,5 @@
 YUM=$(yum --version)
-if $YUM; then
+if [ ! -z "$YUM" ]; then
   bash ./aws-docker.sh $@
   exit
 fi

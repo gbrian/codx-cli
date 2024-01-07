@@ -3,7 +3,7 @@ source ~/.bashrc
 BASH_RC=~/.bashrc
 
 rm -rf gpt-engineer
-git clone --single-branch --branch codx https://github.com/gbrian/gpt-engineer.git
+git clone --single-branch --branch ${GPT_ENGINEER_BRANCH:-codx} https://github.com/gbrian/gpt-engineer.git
 cd gpt-engineer
 if [ -z "$OPENAI_API_KEY" ]; then
     echo "OPENAI_API_KEY not found. Paste the openAI key here or edit $PWD/.env later."

@@ -21,15 +21,14 @@ if docker --version;then
   sudo cp dgpt-engineer.sh /usr/bin/gpt-engineer
   sudo chmod +x /usr/bin/gpt-engineer
 else
-  echo "****** DOCKER NOT FOUND. INSTALLING LOCALLY gpt-engineer. Docker version"
+  echo "****** DOCKER NOT FOUND. INSTALLING LOCALLY gpt-engineer"
   sudo apt update
   sudo apt-get install -y python3-tk make
 
-  bash $CODX_APPS/codx.sh python
-  python3 -m pip install -e .
+  bash $CODX_APPS/codx.sh python_311
+  python3 -m venv venv
+  pip install -e .
 
-  GPT_ENGINEER_PATH=$PWD
-  if ! grep -q "gpt-engineer" "$BASH_RC"; then
-      echo "alias gpt-engineer='python3 ${GPT_ENGINEER_PATH}/gpt_engineer/cli/main.py'" >> $BASH_RC
-  fi
+  sudo cp gpt-engineer.usr.bin /usr/bin/gpt-engineer
+  sudo chmod +x /usr/bin/gpt-engineer
 fi

@@ -1,9 +1,8 @@
-sudo apt update
-export PASSWORD=$(openssl rand -base64 12)
-# Listen on port 9080
+export VERSION=4.20.1
 export CODER_HTTP_ADDRESS=0.0.0.0:${PORT:-9080}
 
-curl -fsSL https://coder.com/install.sh | sh
+curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-server_${VERSION}_amd64.deb
+sudo dpkg -i code-server_${VERSION}_amd64.deb
+sed -i "s/127.0.0.1:8080/0.0.0.0:9080/" /root/.config/code-server/config.yaml 
 
-sudo systemctl enable --now coder
-journalctl -u coder.service -b
+code-server &

@@ -1,4 +1,4 @@
-YUM=$(yum --version)
+YUM=$(dpkg -l | grep yum)
 if [ ! -z "$YUM" ]; then
   bash ./aws-docker.sh $@
   exit

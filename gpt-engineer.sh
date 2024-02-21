@@ -16,7 +16,7 @@ fi
 
 if docker --version;then
   echo "****** INSTALLING DOCKER dgpt-engineer. Docker version"
-  docker build -t gpt-engineer -f docker/Dockerfile .
+  bash dgpt-build.sh
 
   sudo cp dgpt-engineer.sh /usr/bin/gpt-engineer
   sudo chmod +x /usr/bin/gpt-engineer

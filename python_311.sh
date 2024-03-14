@@ -7,7 +7,8 @@ echo "deb http://deb.debian.org/debian/ sid main" | sudo tee -a /etc/apt/sources
 sudo apt update
 
 # Install Python 3.11 from SID repository
-sudo apt install -t sid -y python3.11 python3.11-venv python3-venv
+sudo apt install -t sid -y python3.11 python3.11-venv
+sudo apt install -y python3-venv
 
 # Verify the installation
 VERSION=$(python3.11 -V)

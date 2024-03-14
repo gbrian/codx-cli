@@ -31,5 +31,4 @@ sudo chmod +x $CODX_APPS/codx.sh
 
 BASHRC=~/.bashrc
 echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC
-sudo cp codx.sh /usr/bin/codx
-sudo chmod +x /usr/bin/codx
+sudo cp $CODX_APPS/codx.sh /usr/bin/codx

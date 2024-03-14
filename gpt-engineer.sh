@@ -15,6 +15,6 @@ if ! grep -q $OPENAI_API_KEY "$BASH_RC"; then
 fi
 
 echo "****** INSTALLING gpt-engineer *********"
-. gpt-engineer.sh
+. gpt-engineer-install.sh
 sudo cp gpt-engineer.sh /usr/bin/gpt-engineer
 sudo chmod +x /usr/bin/gpt-engineer

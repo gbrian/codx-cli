@@ -1,6 +1,6 @@
 #!/bin/bash
 COMMAND=$1
-CODX_APPS=~/codx-cli
+CODX_APPS=${CODX_APPS:-~/codx-cli}
 
 echo "codx running command $COMMAND"
 if [ "$COMMAND" = "--update" ]; then
@@ -31,4 +31,5 @@ sudo chmod +x $CODX_APPS/codx.sh
 
 BASHRC=~/.bashrc
 echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC
-echo "alias codx='${CODX_APPS}/codx.sh'" >> $BASHRC
+sudo cp codx.sh /usr/bin/codx
+sudo chmod +x /usr/bin/codx

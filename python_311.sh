@@ -4,7 +4,7 @@
 sudo apt update
 
 # Install Python 3.11 from SID repository
-sudo apt install -y python3 python3-pip python3-venv
+sudo apt install -y python3 python3-pip python3-venv python3.11-venv
 
 # Verify the installation
 VERSION=$(python3 -V)

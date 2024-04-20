@@ -6,7 +6,7 @@ echo "codx running command $COMMAND"
 if [ "$COMMAND" = "--update" ]; then
   cd $CODX_APPS
   git config --global --add safe.directory $CODX_APPS
-  sudo git pull
+  git pull
   exit
 fi
 mkdir -p $CODX_APPS
@@ -26,8 +26,8 @@ sudo apt update
 sudo apt install -y git
 
 rm -rf $CODX_APPS
-sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
-sudo chmod +x $CODX_APPS/codx.sh
+git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
+chmod +x $CODX_APPS/codx.sh
 
 BASHRC=~/.bashrc
 echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC

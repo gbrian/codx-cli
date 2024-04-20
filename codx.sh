@@ -1,6 +1,6 @@
 #!/bin/bash
 COMMAND=$1
-CODX_APPS=${CODX_APPS:-~/codx-cli}
+CODX_APPS=/usr/local/codx-cli
 
 echo "codx running command $COMMAND"
 if [ "$COMMAND" = "--update" ]; then
@@ -29,6 +29,4 @@ rm -rf $CODX_APPS
 git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
 chmod +x $CODX_APPS/codx.sh
 
-BASHRC=~/.bashrc
-echo "export CODX_APPS=${CODX_APPS}" >> $BASHRC
-sudo cp $CODX_APPS/codx.sh /usr/bin/codx
+sudo ln -s $CODX_APPS/codx.sh /usr/local/bin/codx

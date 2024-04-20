@@ -5,11 +5,10 @@ CODX_APPS=/usr/local/codx-cli
 echo "codx running command $COMMAND"
 if [ "$COMMAND" = "--update" ]; then
   cd $CODX_APPS
-  git config --global --add safe.directory $CODX_APPS
-  git pull
+  sudo git config --global --add safe.directory $CODX_APPS
+  sudo git pull
   exit
 fi
-mkdir -p $CODX_APPS
 
 echo "Executing codx $COMMAND"
 if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
@@ -21,12 +20,9 @@ if [ $COMMAND ]; then
   exit
 fi
 
-# Register codx alias
 sudo apt update
 sudo apt install -y git
-
 rm -rf $CODX_APPS
-git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
-chmod +x $CODX_APPS/codx.sh
-
+sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
+sudo chmod +x $CODX_APPS/codx.sh
 sudo ln -s $CODX_APPS/codx.sh /usr/local/bin/codx

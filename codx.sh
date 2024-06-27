@@ -22,7 +22,7 @@ fi
 
 sudo apt update
 sudo apt install -y git
-rm -rf $CODX_APPS
+sudo rm -rf $CODX_APPS
 sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
 sudo chmod +x $CODX_APPS/codx.sh
 sudo ln -s $CODX_APPS/codx.sh /usr/local/bin/codx

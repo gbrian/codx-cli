@@ -8,5 +8,5 @@ echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.b
 
 source ~/.bashrc
 
-nvm install latest
+nvm install node
 npm install -g yarn

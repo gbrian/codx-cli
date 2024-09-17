@@ -10,6 +10,12 @@ if [ "$COMMAND" = "--update" ]; then
   exit
 fi
 
+if [ "$COMMAND" = "--list" ]; then
+  cd $CODX_APPS
+  find ./  -printf "%f\n"
+  exit
+fi
+
 echo "Executing codx $COMMAND"
 if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
   echo "codx ver 0.1"

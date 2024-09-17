@@ -11,7 +11,7 @@ if [ "$COMMAND" = "--update" ]; then
 fi
 
 if [ "$COMMAND" = "--list" ]; then
-  find $CODX_APPS  -printf "%f\n"
+  basename --suffix=.sh -- ${CODX_APPS}/*.sh
   exit
 fi
 

@@ -11,8 +11,7 @@ if [ "$COMMAND" = "--update" ]; then
 fi
 
 if [ "$COMMAND" = "--list" ]; then
-  cd $CODX_APPS
-  find ./  -printf "%f\n"
+  find $CODX_APPS  -printf "%f\n"
   exit
 fi
 

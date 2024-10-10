@@ -1,5 +1,6 @@
 #!/bin/bash
 COMMAND=$1
+shift
 CODX_APPS=/usr/local/codx-cli
 
 echo "codx running command $COMMAND"
@@ -21,7 +22,7 @@ if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
   exit
 fi
 if [ $COMMAND ]; then 
-  (cd $CODX_APPS && bash ./${COMMAND}.sh)
+  (cd $CODX_APPS && bash ./${COMMAND}.sh $@)
   exit
 fi
 

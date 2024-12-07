@@ -5,7 +5,7 @@ if [ ! -x "/usr/bin/openfortivpn" ]; then
   apt-get update
   apt install -y openfortivpn
 
-  if [ ! -t "/etc/openfortivpn/openfortivpn.conf" ]; then
+  if [ ! -e "/etc/openfortivpn/openfortivpn.conf" ]; then
     echo "
     host = 
     port = 

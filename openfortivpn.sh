@@ -21,8 +21,8 @@ fi
 
 SVPNCOOKIE=${SVPNCOOKIE:-1}
 
-if [ -n "$SVPNCOOKIE" ]; then
-  openfortivpn -c /etc/openfortivpn/openfortivpn.conf
+if [ "$SVPNCOOKIE" != "" ]; then
+  openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
         -v -v -v \
         --cookie=SVPNCOOKIE=${SVPNCOOKIE}
 else

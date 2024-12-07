@@ -2,10 +2,8 @@
 
 if [ ! -x "/usr/bin/openfortivpn" ]; then
   # You must be sudo
-  wget -O - https://repo.fortinet.com/repo/7.0/ubuntu/DEB-GPG-KEY | apt-key add - \
-  deb [arch=amd64] https://repo.fortinet.com/repo/7.0/ubuntu xenial multiverse \
   apt-get update
-  apt install forticlient
+  apt install openfortivpn
 
   if [ ! -t "/etc/openfortivpn/openfortivpn.conf" ]; then
     echo "

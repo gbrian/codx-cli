@@ -6,16 +6,14 @@ if [ ! -x "/usr/bin/openfortivpn" ]; then
   apt install -y openfortivpn
 
   if [ ! -e "/etc/openfortivpn/openfortivpn.conf" ]; then
-    echo "
-    host = 
-    port = 
-    username = 
-    password = 
-    set-dns = 0
-    pppd-use-peerdns = 0
-    # X509 certificate sha256 sum, trust only this one!
-    trusted-cert = 
-    " > /etc/openfortivpn/openfortivpn.conf
+    echo "host = 
+port = 
+username = 
+password = 
+set-dns = 0
+pppd-use-peerdns = 0
+# X509 certificate sha256 sum, trust only this one!
+trusted-cert = " > /etc/openfortivpn/openfortivpn.conf
   fi
 fi
 

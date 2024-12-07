@@ -18,13 +18,18 @@ trusted-cert = " > /etc/openfortivpn/openfortivpn.conf
 fi
 
 SVPNCOOKIE=${SVPNCOOKIE:-$1}
+if [ "$SVPNCOOKIE" == "" ]; then
+  echo "SVPNCOOKIE: "
+  read SVPNCOOKIE
+fi
 
 if [ "$SVPNCOOKIE" != "" ]; then
-  openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
-        -v -v -v \
-        --cookie=SVPNCOOKIE=${SVPNCOOKIE}
-else
   echo "SVPNCOOKIE not found"
   echo "Usage codx openfortivpn SVPNCOOKIE"
+  exit
 fi
+
+openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
+      -v -v -v \
+      --cookie=SVPNCOOKIE=${SVPNCOOKIE}
     

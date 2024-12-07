@@ -31,5 +31,5 @@ fi
 
 openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
       -v -v -v \
-      --cookie=SVPNCOOKIE=${SVPNCOOKIE}
+      --cookie=SVPNCOOKIE=${SVPNCOOKIE} &
     

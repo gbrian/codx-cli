@@ -23,7 +23,7 @@ if [ "$SVPNCOOKIE" == "" ]; then
   read SVPNCOOKIE
 fi
 
-if [ "$SVPNCOOKIE" != "" ]; then
+if [ "$SVPNCOOKIE" == "" ]; then
   echo "SVPNCOOKIE not found"
   echo "Usage codx openfortivpn SVPNCOOKIE"
   exit

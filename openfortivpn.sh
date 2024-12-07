@@ -3,7 +3,7 @@
 if [ ! -x "/usr/bin/openfortivpn" ]; then
   # You must be sudo
   apt-get update
-  apt install openfortivpn
+  apt install -y openfortivpn
 
   if [ ! -t "/etc/openfortivpn/openfortivpn.conf" ]; then
     echo "

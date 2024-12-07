@@ -17,7 +17,7 @@ trusted-cert = " > /etc/openfortivpn/openfortivpn.conf
   fi
 fi
 
-SVPNCOOKIE=${SVPNCOOKIE:-1}
+SVPNCOOKIE=${SVPNCOOKIE:-$1}
 
 if [ "$SVPNCOOKIE" != "" ]; then
   openfortivpn -c /etc/openfortivpn/openfortivpn.conf \

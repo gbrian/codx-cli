@@ -22,7 +22,7 @@ if [ "$COMMAND" == '--version' ] || [ "$COMMAND" == '-v' ]; then
   exit
 fi
 if [ $COMMAND ]; then 
-  (cd $CODX_APPS && bash ./${COMMAND}.sh $@)
+  (cd $HOME && bash $CODX_APPS/${COMMAND}.sh $@)
   exit
 fi
 

@@ -16,3 +16,8 @@ idea_source=https://download.jetbrains.com/idea/ideaIC-${IDEA_BUILD}${idea_arch}
 echo "Downloading ${idea_source} ..."
 curl -fsSL $idea_source -o ~/opt/idea/installer.tgz
 tar --strip-components=1 -xzf ~/opt/idea/installer.tgz -C ~/opt/idea
+echo "Adding 'intellij' command to usr/bin"
+echo "#!/bin/bash" > ~/opt/idea/bin/intellij
+echo "~/opt/idea/bin/idea.sh" >> ~/opt/idea/bin/intellij
+chmod +x ~/opt/idea/bin/intellij
+sudo cp ~/opt/idea/bin/intellij /usr/bin/intellij

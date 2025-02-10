@@ -3,7 +3,7 @@ git clone https://github.com/billchurch/webssh2
 cd webssh2
 npm i
 echo "#!/bin/bash
-cd $PWD/webssh2
+cd $PWD
 npm start" > /usr/bin/webssh2
 chmod +x /usr/bin/webssh2
 

@@ -1,7 +1,9 @@
 #!/bin/bash
 git clone https://github.com/billchurch/webssh2
 cd webssh2
-npm i
+git checkout current
+npm install --production
+
 echo "#!/bin/bash
 cd $PWD
 npm start" > /usr/bin/webssh2

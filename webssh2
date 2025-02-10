@@ -1,0 +1,9 @@
+git clone https://github.com/billchurch/webssh2
+cd webssh2
+npm -i
+echo "#!/bin/bash
+cd $PWD/webssh2
+npm start" > /usr/bin/webssh2
+chmod +x /usr/bin/webssh2
+
+echo "Remote SSH2 installed. Use 'webssh2' to run it"

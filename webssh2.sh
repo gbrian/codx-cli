@@ -2,6 +2,8 @@
 git clone https://github.com/billchurch/webssh2
 cd webssh2
 git checkout current
+
+cd app
 npm install --production
 
 echo "#!/bin/bash

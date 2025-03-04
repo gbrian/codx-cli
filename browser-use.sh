@@ -28,12 +28,14 @@ cat <<EOF > browser-chat.py
 import os
 import asyncio
 from langchain_openai import ChatOpenAI
-from browser_use import Agent
 from dotenv import load_dotenv
 
-from browser_use.browser.browser import Browser
+from browser_use import Agent, Browser
+from browser_use.browser.context import BrowserContext
 
+# Reuse existing browser
 browser = Browser()
+
 async def main(task):
     agent = Agent(
         task=task,

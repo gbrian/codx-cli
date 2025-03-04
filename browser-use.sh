@@ -21,6 +21,7 @@ pip install --break-system-packag browser-use langchain_openai playwright dotenv
 
 # Install Playwright browsers
 playwright install
+playwright install-deps
 
 # Create the browser-chat.py script
 cat <<EOF > browser-chat.py

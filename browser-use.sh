@@ -17,7 +17,7 @@ python3.11 -m venv venv
 source venv/bin/activate
 
 # Install pip packages
-pip install --break-system-packages langchain_openai playwright dotenv
+pip install --break-system-packages browser_use langchain_openai playwright dotenv
 
 # Install Playwright dependencies first
 playwright install-deps

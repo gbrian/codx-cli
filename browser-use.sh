@@ -4,7 +4,7 @@
 sudo apt-get update
 
 # Install Python 3.11 and pip
-sudo apt-get install -y python3.11 python3-pip
+sudo apt-get install -y python3.11 python3-pip python3.11-venv
 
 # Create a directory for the project
 mkdir browser_chat_project

@@ -63,7 +63,7 @@ if __name__ == "__main__":
 EOF
 
 # Run the script
-python3 browser-chat.py
+python3 browser-chat.py | tee browser-chat.txt
 
 # Deactivate the virtual environment
 deactivate

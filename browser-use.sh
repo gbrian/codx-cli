@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Capture the current directory
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
 # Update package list
 sudo apt-get update
 
@@ -99,8 +102,12 @@ fi
 # Determine the directory of the script
 SCRIPT_DIR=\$(cd "\$(dirname "\${BASH_SOURCE[0]}")" && pwd)
 
+# Set the working directory to the project directory
+PROJECT_DIR="$SCRIPT_DIR"
+cd "\$PROJECT_DIR"
+
 # Construct the command
-COMMAND="python3 \${SCRIPT_DIR}/browser-chat.py"
+COMMAND="python3 \${PROJECT_DIR}/browser-chat.py"
 
 # Add --file option if provided
 if [[ "\$1" == "--file" ]]; then

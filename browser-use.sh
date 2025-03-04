@@ -31,10 +31,15 @@ from langchain_openai import ChatOpenAI
 from browser_use import Agent
 from dotenv import load_dotenv
 
+from browser_use.browser.browser import Browser
+
+browser = Browser()
+
 async def main(task):
     agent = Agent(
         task=task,
         llm=ChatOpenAI(model="gpt-4o"),
+        browser=browser,
     )
     await agent.run()
 

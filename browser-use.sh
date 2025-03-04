@@ -35,12 +35,13 @@ from browser_use.browser.context import BrowserContext
 
 # Reuse existing browser
 browser = Browser()
+context = BrowserContext(browser=browser)
 
 async def main(task):
     agent = Agent(
         task=task,
         llm=ChatOpenAI(model="gpt-4o"),
-        browser=browser,
+        browser_context=context,
     )
     await agent.run()
 

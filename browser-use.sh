@@ -57,6 +57,7 @@ if __name__ == "__main__":
         
         # Run the agent with user input
         asyncio.run(main(user_input))
+    browser.close()
 EOF
 
 # Run the script

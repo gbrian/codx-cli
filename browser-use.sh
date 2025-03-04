@@ -34,7 +34,6 @@ from dotenv import load_dotenv
 from browser_use.browser.browser import Browser
 
 browser = Browser()
-
 async def main(task):
     agent = Agent(
         task=task,
@@ -47,7 +46,7 @@ if __name__ == "__main__":
     
     print("Welcome to the Browser Chat App!")
     print("Type 'exit' to quit.")
-    
+    browser.open()    
     while True:
         user_input = input("You: ")
         if not user_input or user_input.lower() == "exit":

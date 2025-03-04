@@ -37,6 +37,9 @@ from browser_use.browser.context import BrowserContext
 browser = Browser()
 context = BrowserContext(browser=browser)
 
+async close():
+    await browser.close()
+
 async def main(task):
     agent = Agent(
         task=task,
@@ -57,7 +60,7 @@ if __name__ == "__main__":
         
         # Run the agent with user input
         asyncio.run(main(user_input))
-    browser.close()
+    asyncio.run(close())
 EOF
 
 # Run the script

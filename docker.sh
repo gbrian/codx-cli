@@ -1,5 +1,5 @@
 #/bin/bash
-
+DOCKER_COMPOSE_RELEASE_VER=2.35.1
 ###
 ### https://docs.docker.com/engine/install/debian/#install-using-the-repository
 ###
@@ -26,6 +26,14 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 
 ## docker-compose
 if [ ! -x "$(command -v docker-compose)" ]; then
-  sudo curl -L "https://github.com/docker/compose/releases/download/v2.0.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo curl -L "https://github.com/docker/compose/releases/download/v${DOCKER_COMPOSE_RELEASE_VER}/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
   sudo chmod +x /usr/local/bin/docker-compose
 fi
+# Create docker group
+sudo groupadd docker
+# Add user to docker group
+sudo usermod -aG docker $USER
+# Test
+newgrp docker
+docker ps
+

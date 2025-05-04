@@ -30,7 +30,9 @@ if [ ! -x "$(command -v docker-compose)" ]; then
   sudo chmod +x /usr/local/bin/docker-compose
 fi
 # Create docker group
-sudo groupadd docker
+if [ "$(getent group docker)" == "" ]; then
+  sudo groupadd docker
+fi
 # Add user to docker group
 sudo usermod -aG docker $USER
 # Test

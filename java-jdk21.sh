@@ -13,4 +13,4 @@ sudo update-alternatives --install /usr/bin/javac javac /opt/jdk21/bin/javac 1
 sudo update-alternatives --set java /opt/jdk21/bin/java
 sudo update-alternatives --set javac /opt/jdk21/bin/javac
 
-sudo apt install maven
+sudo apt install -y maven

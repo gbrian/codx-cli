@@ -1,35 +1,34 @@
 #!/bin/bash
 
 if [ ! -x "/usr/bin/openfortivpn" ]; then
-  # You must be sudo
-  apt-get update
-  apt install -y openfortivpn
+  sudo apt-get update
+  sudo apt install -y openfortivpn nano
+  sudo mknod /dev/ppp c 108 0
+fi
 
-  if [ ! -e "/etc/openfortivpn/openfortivpn.conf" ]; then
+function create_config() {
     echo "host = 
 port = 
 username = 
 password = 
-set-dns = 0
+set-dns = 1
 pppd-use-peerdns = 0
-# X509 certificate sha256 sum, trust only this one!
-trusted-cert = " > /etc/openfortivpn/openfortivpn.conf
-  fi
+trusted-cert ="  > .conf
+  sudo mv .conf /etc/openfortivpn/openfortivpn.conf
+  # Let user set de values
+  sudo nano /etc/openfortivpn/openfortivpn.conf
+}
+
+if [ ! -f "/etc/openfortivpn/openfortivpn.conf" ]; then
+  echo "Creating vpn config /etc/openfortivpn/openfortivpn.conf"
+  create_config
 fi
 
-SVPNCOOKIE=${SVPNCOOKIE:-$1}
-if [ "$SVPNCOOKIE" == "" ]; then
+while true; do
   echo "SVPNCOOKIE: "
   read SVPNCOOKIE
-fi
 
-if [ "$SVPNCOOKIE" == "" ]; then
-  echo "SVPNCOOKIE not found"
-  echo "Usage codx openfortivpn SVPNCOOKIE"
-  exit
-fi
-
-openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
+  sudo openfortivpn -c /etc/openfortivpn/openfortivpn.conf \
       -v -v -v \
       --cookie=SVPNCOOKIE=${SVPNCOOKIE} &
-    
+done

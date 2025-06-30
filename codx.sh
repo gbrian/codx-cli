@@ -27,7 +27,7 @@ if [ $COMMAND ]; then
 fi
 
 sudo apt update
-sudo apt install -y git
+sudo apt install -y git wget
 sudo rm -rf $CODX_APPS
 sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
 sudo chmod +x $CODX_APPS/codx.sh

@@ -7,3 +7,6 @@ sudo ln -s $HOME/.dotnet/dotnet /usr/bin/dotnet
 
 # Nuget credential manager
 curl -sL https://raw.githubusercontent.com/microsoft/artifacts-credprovider/refs/heads/master/helpers/installcredprovider.sh | bash -
+
+# Azure cli
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash

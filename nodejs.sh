@@ -1,5 +1,5 @@
 [ -s "$NVM_DIR/nvm.sh" ] && exit
-VERSION="0.40.1"
+VERSION="0.40.3"
 # https://github.com/nvm-sh/nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v${VERSION}/install.sh | bash
 
@@ -8,6 +8,7 @@ echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.b
 
 source ~/.bashrc
 
-. ${HOME}/.nvm/nvm.sh
-nvm install node
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+nvm install 25
 npm install -g yarn

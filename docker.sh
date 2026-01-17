@@ -36,5 +36,3 @@ fi
 sudo usermod -aG docker $USER
 # Test
 newgrp docker
-docker ps
-

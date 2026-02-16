@@ -1,6 +1,9 @@
 #!/bin/bash
 JAVA_JDK21_URL=https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.7%2B6/OpenJDK21U-jdk_x64_linux_hotspot_21.0.7_6.tar.gz
 
+# Make sure man folder exists to avpid installation problems
+sudo mkdir -p /usr/share/man/man1 || true
+
 # Download and extract JDK
 curl -L $JAVA_JDK21_URL -o jdk21.tar.gz
 sudo mkdir /opt/jdk21

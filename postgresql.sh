@@ -13,5 +13,3 @@ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)
 # Update and install PostgreSQL (defaults to the latest version)
 sudo apt update
 sudo apt install -y postgresql postgresql-contrib
-
-postgresql &

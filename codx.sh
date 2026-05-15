@@ -1,7 +1,7 @@
 #!/bin/bash
 COMMAND=$1
 shift
-CODX_APPS=/usr/local/codx-cli
+CODX_APPS=~/codx-cli
 
 echo "codx running command $COMMAND"
 if [ "$COMMAND" = "--update" ]; then

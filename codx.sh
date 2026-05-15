@@ -29,8 +29,8 @@ fi
 sudo apt update
 sudo apt install -y git wget
 sudo rm -rf $CODX_APPS
-sudo git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
-sudo chmod +x $CODX_APPS/codx.sh
+git clone https://github.com/gbrian/codx-cli.git $CODX_APPS
+chmod +x $CODX_APPS/codx.sh
 # Remove previous installation link
 sudo rm /usr/local/bin/codx || true
 sudo ln -s $CODX_APPS/codx.sh /usr/local/bin/codx

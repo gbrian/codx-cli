@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# FIX: Couldn't find a valid ICU package installed on the system
+sudo apt i -y libicu-dev
+
 # 1. Determine version: Use $1 if provided, otherwise default to latest
 DOTNET_VERSION=${1:-latest}
 

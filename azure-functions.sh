@@ -1,7 +1,5 @@
 #!/bin/bash
 
-sudo apt install libatomic1
-
 # Update and install the Azure Functions Core Tools
 npm install -g azure-functions-core-tools@4 --unsafe-perm true
 

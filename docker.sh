@@ -35,4 +35,4 @@ fi
 # Add user to docker group
 sudo usermod -aG docker $USER
 # Test
-newgrp docker
+docker --info

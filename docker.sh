@@ -3,10 +3,10 @@
 # Exit immediately if a command fails, or if an uninitialized variable is used
 set -euo pipefail
 
-# Check if Docker is already installed and running
-if command -v docker &> /dev/null && systemctl is-active --quiet docker; then
-  echo "Docker is already installed and running. Exiting script."
-  exit 0
+# Check if Docker CLI is installed
+if command -v docker &> /dev/null; then
+    echo " Docker CLI is already installed: $(docker --version). Exiting."
+    exit 0
 fi
 
 DOCKER_COMPOSE_RELEASE_VER="2.35.1"
